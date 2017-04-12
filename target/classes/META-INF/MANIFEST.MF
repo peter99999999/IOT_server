@@ -1,5 +1,10 @@
 Manifest-Version: 1.0
+Implementation-Title: IOT_server
+Implementation-Version: 0.0.1-SNAPSHOT
 Built-By: EDE67167
+Implementation-Vendor-Id: com.gary
 Build-Jdk: 1.8.0_101
+Implementation-URL: http://projects.spring.io/spring-boot/IOT_server/
 Created-By: Maven Integration for Eclipse
+Implementation-Vendor: Pivotal Software, Inc.
 

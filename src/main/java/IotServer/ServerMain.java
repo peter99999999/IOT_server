@@ -1,4 +1,8 @@
-package nettyserver;
+package IotServer;
+
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.ChannelFuture;
@@ -15,16 +19,18 @@ import io.netty.handler.ssl.SslContext;
 import io.netty.handler.ssl.SslContextBuilder;
 import io.netty.handler.ssl.util.SelfSignedCertificate;
 
-public class Main {
+@SpringBootApplication
+public class ServerMain implements CommandLineRunner{
 	static final boolean SSL = System.getProperty("ssl") != null;
 	static final int PORT = Integer.parseInt(System.getProperty("port", "8007"));
-	public Main() {
+	public ServerMain() {
 		// TODO Auto-generated constructor stub
 	}
 
 	public static void main(String[] args) throws Exception {
 		
-		nettyServerInit();
+		
+		SpringApplication.run(ServerMain.class, args);
 	}
 	
 	private static void nettyServerInit() throws Exception
@@ -32,7 +38,7 @@ public class Main {
 		// TODO Auto-generated method stub
 				int i;
 				i=0;
-				System.out.println("hello,netty server");		
+				System.out.println("hello,netty server,hot plug");		
 				// Configure SSL.
 			    final SslContext sslCtx;
 			    if (SSL) {
@@ -59,7 +65,7 @@ public class Main {
 			                     p.addLast(sslCtx.newHandler(ch.alloc()));
 			                 }
 			                 //p.addLast(new LoggingHandler(LogLevel.INFO));
-			                 p.addLast(new EchoServerHandler());
+			                 p.addLast(new NettyEchoServerHandler());
 			             }
 			         });
 
@@ -73,6 +79,11 @@ public class Main {
 			        bossGroup.shutdownGracefully();
 			        workerGroup.shutdownGracefully();
 			    }
+	}
+
+	public void run(String... args) throws Exception {
+		// TODO Auto-generated method stub
+		//nettyServerInit();
 	}
 
 }
