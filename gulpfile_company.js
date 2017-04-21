@@ -18,6 +18,7 @@ var fileSrc=[
            "*",
            "!.git",
            "!*.bak",
+            "!target",
           
           ];
 //var fileSrc= fileSrcS[0];

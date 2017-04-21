@@ -13,6 +13,8 @@ import io.netty.channel.EventLoopGroup;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
+import io.netty.handler.codec.json.JsonObjectDecoder;
+import io.netty.handler.codec.string.StringEncoder;
 import io.netty.handler.logging.LogLevel;
 import io.netty.handler.logging.LoggingHandler;
 import io.netty.handler.ssl.SslContext;
@@ -22,7 +24,7 @@ import io.netty.handler.ssl.util.SelfSignedCertificate;
 @SpringBootApplication
 public class ServerMain implements CommandLineRunner{
 	static final boolean SSL = System.getProperty("ssl") != null;
-	static final int PORT = Integer.parseInt(System.getProperty("port", "8007"));
+	static final int PORT = Integer.parseInt(System.getProperty("port", "8008"));
 	public ServerMain() {
 		// TODO Auto-generated constructor stub
 	}
@@ -38,6 +40,7 @@ public class ServerMain implements CommandLineRunner{
 		// TODO Auto-generated method stub
 				int i;
 				i=0;
+				new JsonObjectDecoder();
 				System.out.println("hello,netty server,hot plug");		
 				// Configure SSL.
 			    final SslContext sslCtx;
@@ -65,7 +68,12 @@ public class ServerMain implements CommandLineRunner{
 			                     p.addLast(sslCtx.newHandler(ch.alloc()));
 			                 }
 			                 //p.addLast(new LoggingHandler(LogLevel.INFO));
-			                 p.addLast(new NettyEchoServerHandler());
+			                 //p.addLast(new NettyEchoServerHandler());
+			                 //p.addLast(new JsonObjectDecoder(),new NettyEchoServerHandler());//it seems the JsonObjectDecoder() have some bug(will receive serval json sometimes in handler size),and I have to add my:MyJsonDecoder()
+			                 p.addLast(new StringEncoder());
+			                 p.addLast(new MyJsonDecoder(),new NettyEchoServerHandler());
+			                 
+			                
 			             }
 			         });
 
@@ -83,7 +91,7 @@ public class ServerMain implements CommandLineRunner{
 
 	public void run(String... args) throws Exception {
 		// TODO Auto-generated method stub
-		//nettyServerInit();
+		nettyServerInit();
 	}
 
 }
