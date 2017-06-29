@@ -115,7 +115,7 @@ gulp.task('add_2', function(cb){
 gulp.task('commit_2', ['add_2'], function(cb){
   // cb(err);// 如果 err 不是 null 和 undefined，流程会被结束掉，下一任务不会被执行
   return gulp.src(fileSrc)
-    .pipe(git.commit('gulp commit 2'));
+    .pipe(git.commit('gulp commit 3'));
 });
 
 // 标注一个依赖，依赖的任务必须在这个任务开始之前被完成
