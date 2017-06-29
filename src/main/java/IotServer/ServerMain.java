@@ -1,5 +1,8 @@
 package IotServer;
 
+import java.net.InetAddress;
+import java.net.UnknownHostException;
+
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -24,7 +27,7 @@ import io.netty.handler.ssl.util.SelfSignedCertificate;
 @SpringBootApplication
 public class ServerMain implements CommandLineRunner{
 	static final boolean SSL = System.getProperty("ssl") != null;
-	static final int PORT = Integer.parseInt(System.getProperty("port", "8008"));
+	static final int PORT = Integer.parseInt(System.getProperty("port", "1012"));
 	public ServerMain() {
 		// TODO Auto-generated constructor stub
 	}
@@ -40,8 +43,20 @@ public class ServerMain implements CommandLineRunner{
 		// TODO Auto-generated method stub
 				int i;
 				i=0;
+				//DevicesManager devicesManager=new DevicesManager();
+				/*devicesManager.InitDeviceIp("0001", "10.99.137.131");
+				devicesManager.AddDeviceMobileIp("0001", "10.99.137.132");
+				devicesManager.AddDeviceMobileIp("0001", "10.99.137.133");
+				devicesManager.AddDeviceMobileIp("0001", "10.99.137.133");*/
 				new JsonObjectDecoder();
-				System.out.println("hello,netty server,hot plug");		
+				System.out.println("hello,netty server,hot plug");	
+				 String Ip = null;  
+				    try {  
+				        Ip = InetAddress.getLocalHost().getHostAddress();  
+				    } catch (UnknownHostException e) {  
+				        e.printStackTrace();  
+				    } 
+				    System.out.println("MY ip is:"+Ip);	
 				// Configure SSL.
 			    final SslContext sslCtx;
 			    if (SSL) {
@@ -70,8 +85,9 @@ public class ServerMain implements CommandLineRunner{
 			                 //p.addLast(new LoggingHandler(LogLevel.INFO));
 			                 //p.addLast(new NettyEchoServerHandler());
 			                 //p.addLast(new JsonObjectDecoder(),new NettyEchoServerHandler());//it seems the JsonObjectDecoder() have some bug(will receive serval json sometimes in handler size),and I have to add my:MyJsonDecoder()
-			                 p.addLast(new StringEncoder());
+			                 p.addLast(new StringEncoder());//	for server to client encode,if not this,it default is ByteBuf,and client can't receive it		                
 			                 p.addLast(new MyJsonDecoder(),new NettyEchoServerHandler());
+			                 //p.addLast(new TestChannelHandler());
 			                 
 			                
 			             }

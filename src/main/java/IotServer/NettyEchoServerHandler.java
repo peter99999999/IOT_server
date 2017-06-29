@@ -4,9 +4,9 @@ import java.net.InetSocketAddress;
 
 import com.google.gson.Gson;
 
+import Mesg.RecMsgDecode;
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandler.Sharable;
-import io.netty.channel.Channel;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;
 import io.netty.channel.group.ChannelGroup;
@@ -25,13 +25,22 @@ public class NettyEchoServerHandler extends ChannelInboundHandlerAdapter {
     										
     	String info=in.toString(io.netty.util.CharsetUtil.US_ASCII);								//;	//获取客户端发过来的信�?
     								
-        System.out.println("Server receive:"+info);	
+        System.out.println("NettyEchoServerHandler,Server receive:"+info);	
 
-        
-        DataObj dataObj = gson.fromJson(info, DataObj.class);     
-    	DataStore.getInstance().setObjInfo(dataObj);
-    	DataStore.getInstance().recordIdConnect(dataObj.getId(),ctx.channel().id());
-        ctx.write(msg);
+        RecMsgDecode.getInstance().decodeMsg(info,ctx.channel().id());
+      //ctx.write(msg);//the msg will send to client 
+        /*DataObj dataObj;
+		try {
+			dataObj = gson.fromJson(info, DataObj.class);
+			DataStore.getInstance().setObjInfo(dataObj);
+	    	DataStore.getInstance().recordIdConnect(dataObj.getId(),ctx.channel().id());
+	      
+		} catch (JsonSyntaxException e) {
+			// TODO Auto-generated catch block
+			//e.printStackTrace();
+			System.out.println("the info in not a DataObj.class");	
+		}   */ 
+		
     	/*String msg_2="the pc getting your info" ; 
     	for (Channel c: channels) {
 			 //c.writeAndFlush( msg_2 + '\n');

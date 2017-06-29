@@ -1,6 +1,8 @@
 package IotServer;
 
 import java.io.IOException;
+import java.util.Iterator;
+import java.util.Map;
 
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
@@ -37,9 +39,9 @@ public class HttpHandler implements Filter{
 	@ResponseBody
 	public String getInfo(@RequestParam(value="id",defaultValue="1") int id) {	
 		
-		String msg="the pc getting your info" ;
+		/*String msg="the pc getting your info" ;
 		ChannelId channelId;
-		DataObj dataObj=DataStore.getInstance().getObjInfo( id);	
+		
 		channelId=DataStore.getInstance().getIdConnect(id);
 		if(channelId!=null)
 		{
@@ -49,8 +51,9 @@ public class HttpHandler implements Filter{
 			{
 				chanel.writeAndFlush( msg + '\n');
 			}
-		}
+		}*/
 		
+		/*DataObj dataObj=DataStore.getInstance().getObjInfo( id);	
 		if(dataObj!=null)
 		{
 			return ""+dataObj.getValue();
@@ -58,10 +61,20 @@ public class HttpHandler implements Filter{
 		else
 		{
 			return "not connect yet";
-		}
+		}*/
+		return "ok";
 	}
 	
-	
+	@RequestMapping("/sendInfo")		
+	@ResponseBody
+	public String sendInfo(@RequestParam(value="message",defaultValue="") String message) {	
+		ChannelGroup channels =NettyEchoServerHandler.getChannelGroup();
+		for(Channel chanel:channels)
+		{
+			chanel.writeAndFlush( message + '\n');
+		}
+		return "ok";
+	}
 	
 	
 	public void init(FilterConfig filterConfig) throws ServletException {
