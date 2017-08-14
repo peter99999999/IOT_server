@@ -34,12 +34,17 @@ public class SendMsg {
 		
 		if(msgCase.equals(MesgCase.Msg.RETURN_INFO_TO_MOBILE.toString()))
 		{
-			msgGeneral.setMsgCase(MesgCase.Msg.RETURN_INFO_TO_MOBILE.toString());
+			msgGeneral.setMsgCase(msgCase.toString());
 			channelId=DevicesManager.getInstance().GetMobileIp(deviceInfo.getId());
 		}
-		else if(msgCase.equals(MesgCase.Msg.MOBILE_SET_DEVICE.toString()))
+		else if
+		(
+				msgCase.equals(MesgCase.Msg.MOBILE_SET_DEVICE.toString())
+				//||
+				//msgCase.equals(MesgCase.Msg.MOBILE_GET_DEVICE_MSG.toString())
+		)
 		{
-			msgGeneral.setMsgCase(MesgCase.Msg.MOBILE_SET_DEVICE.toString());
+			msgGeneral.setMsgCase(msgCase.toString());
 			channelId=DevicesManager.getInstance().GetDeviceIp(deviceInfo.getId());
 		}
 		
@@ -72,6 +77,8 @@ public class SendMsg {
 	{
 		setDeviceInfo( deviceInfo,MesgCase.Msg.RETURN_INFO_TO_MOBILE);
 	}
+	
+	
 	
 	public void mobileSetDevice(DeviceInfo deviceInfo)
 	{

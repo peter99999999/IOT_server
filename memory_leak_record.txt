@@ -1,0 +1,81 @@
+﻿http://m635674608.iteye.com/blog/2236834 
+
+The json getByte start:
+{"msg":"The json getByte start:
+{\"id\":\"1\"}braceCount=1
+","msgCase":"mobileGetDeviceMsg"}braceCount=0
+
+The idx is:503,the wrtIdx is:505
+The json is:
+{"msg":"{\"id\":\"1\"}","msgCase":"mobileGetDeviceMsg"}
+
+NettyEchoServerHandler,Server receive:
+{"msg":"{\"id\":\"1\"}","msgCase":"mobileGetDeviceMsg"}
+The server send out msg is:{"msg":"{\"led\":0,\"id\":\"1\"}","msgCase":"returnInfoToMobile"}
+
+
+The json getByte start:
+{"msg":"The json getByte start:
+{\"id\":\"1\"}braceCount=1
+","msgCase":"mobileGetDeviceMsg"}braceCount=0
+
+The idx is:559,the wrtIdx is:561
+The json is:
+{"msg":"{\"id\":\"1\"}","msgCase":"mobileGetDeviceMsg"}
+
+NettyEchoServerHandler,Server receive:
+{"msg":"{\"id\":\"1\"}","msgCase":"mobileGetDeviceMsg"}
+The server send out msg is:{"msg":"{\"led\":0,\"id\":\"1\"}","msgCase":"returnInfoToMobile"}
+
+
+The json getByte start:
+{"msg":"The json getByte start:
+{\"id\":\"1\",\"led\":0}braceCount=1
+","msgCase":"mobileSetDevice"}braceCount=0
+
+The idx is:62,the wrtIdx is:64
+The json is:
+{"msg":"{\"id\":\"1\",\"led\":0}","msgCase":"mobileSetDevice"}
+
+NettyEchoServerHandler,Server receive:
+{"msg":"{\"id\":\"1\",\"led\":0}","msgCase":"mobileSetDevice"}
+The server send out msg is:{"msg":"{\"led\":0,\"id\":\"1\"}","msgCase":"mobileSetDevice"}
+
+
+The json getByte start:
+{"msg":"The json getByte start:
+{\"id\":\"1\"}braceCount=1
+","msgCase":"mobileGetDeviceMsg"}braceCount=0
+
+The idx is:118,the wrtIdx is:120
+2017-07-21 15:41:55.115 ERROR 9036 --- [ntLoopGroup-3-2] io.netty.util.ResourceLeakDetector       : LEAK: ByteBuf.release() was not called before it's garbage-collected. Enable advanced leak reporting to find out where the leak occurred. To enable advanced leak reporting, specify the JVM option '-Dio.netty.leakDetection.level=advanced' or call ResourceLeakDetector.setLevel() See http://netty.io/wiki/reference-counted-objects.html for more information.
+The json is:
+{"msg":"{\"id\":\"1\"}","msgCase":"mobileGetDeviceMsg"}
+
+NettyEchoServerHandler,Server receive:
+{"msg":"{\"id\":\"1\"}","msgCase":"mobileGetDeviceMsg"}
+The server send out msg is:{"msg":"{\"led\":0,\"id\":\"1\"}","msgCase":"returnInfoToMobile"}
+
+
+The json getByte start:
+{"msg":"The json getByte start:
+{\"id\":\"1\"}braceCount=1
+","msgCase":"mobileGetDeviceMsg"}braceCount=0
+
+The idx is:174,the wrtIdx is:176
+The json is:
+{"msg":"{\"id\":\"1\"}","msgCase":"mobileGetDeviceMsg"}
+
+NettyEchoServerHandler,Server receive:
+{"msg":"{\"id\":\"1\"}","msgCase":"mobileGetDeviceMsg"}
+The server send out msg is:{"msg":"{\"led\":0,\"id\":\"1\"}","msgCase":"returnInfoToMobile"}
+
+
+The json getByte start:
+{"msg":"The json getByte start:
+{\"id\":\"1\"}braceCount=1
+","msgCase":"mobileGetDeviceMsg"}braceCount=0
+
+The idx is:230,the wrtIdx is:232
+The json is:
+{"msg":"{\"id\":\"1\"}","msgCase":"mobileGetDeviceMsg"}

@@ -1,11 +1,11 @@
 package Mesg;
 /*
- {"msgCase":"deviceInit","msg":"{\"id\":\"1\"}"}
- {"msgCase":"mobileInit","msg":"{"\id\":\"1\"}"}
+ {"msgCase":"deviceInit","msg":"{'id':'1'}"}
+ {"msgCase":"mobileInit","msg":"{'id':'1'}"}
+ {"msgCase":"deviceSendInfo","msg":"{"id":"1","led":1}"}
  {"msgCase":"deviceSendInfo","msg":"{\"id\":\"1\",\"led\":1}"}
- {"msgCase":"deviceSendInfo","msg":"{\"id\":\"1\",\"led\":1}"}
- {"msgCase":"mobileGetDeviceMsg","msg":"{\"id\":\"1\"}"}
- {"msgCase":"mobileSetDevice","msg":"{\"id":\"1",\"led\":1}"}
+ {"msgCase":"mobileGetDeviceMsg","msg":"{'id':'1'}"}
+ {"msgCase":"mobileSetDevice","msg":"{'id':'1','led':1}"}
  */
 import com.google.gson.Gson;
 import com.google.gson.JsonSyntaxException;
@@ -58,8 +58,6 @@ public class RecMsgDecode {
 					try {
 						MsgObj.DeviceInfo deviceInfo=gson.fromJson(msgGeneralObj.getMsg(), MsgObj.DeviceInfo.class);
 						DevicesManager.getInstance().SetLed(deviceInfo.getId(), deviceInfo.getLed());
-						//To mobile
-						SendMsg.getInstance().deviceInfoToMobile(deviceInfo);
 					} catch (Exception e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
@@ -69,10 +67,7 @@ public class RecMsgDecode {
 		    	{
 					try {
 						MsgObj.IdInfo idInfo=gson.fromJson(msgGeneralObj.getMsg(), MsgObj.IdInfo.class);
-						
-						//To device
-						channelId=DevicesManager.getInstance().GetDeviceIp(idInfo.getId());
-						SendMsg.getInstance().sendMsg(info,channelId);
+						SendMsg.getInstance().deviceInfoToMobile( DevicesManager.getInstance().GetDeviceInfo(idInfo.getId()));
 					} catch (Exception e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();

@@ -63,6 +63,7 @@ public class DevicesManager {
 		DeviceInfo deviceInfo=GetDeviceInfoInstance( deviceId);
 		if(deviceInfo!=null)
 		{
+			deviceInfo.mobileIp.clear();//as only one mobileIp,and now clear it at first,otherwise will have problem
 			deviceInfo.mobileIp.put(mobileIp, true);
 			deviceList.put(deviceId, deviceInfo);
 		}

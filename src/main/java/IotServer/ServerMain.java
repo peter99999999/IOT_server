@@ -27,7 +27,7 @@ import io.netty.handler.ssl.util.SelfSignedCertificate;
 @SpringBootApplication
 public class ServerMain implements CommandLineRunner{
 	static final boolean SSL = System.getProperty("ssl") != null;
-	static final int PORT = Integer.parseInt(System.getProperty("port", "1012"));
+	static final int PORT = Integer.parseInt(System.getProperty("port", "1010"));
 	public ServerMain() {
 		// TODO Auto-generated constructor stub
 	}
