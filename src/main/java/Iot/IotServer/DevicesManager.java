@@ -1,9 +1,10 @@
-package IotServer;
+package Iot.IotServer;
 
 import java.util.HashMap;
 import java.util.Iterator;
 
-import Mesg.MsgObj;
+import Iot.Mesg.MsgObj;
+import Iot.Mesg.MsgObj.DeviceInfo;
 import io.netty.channel.ChannelId;
 
 public class DevicesManager {

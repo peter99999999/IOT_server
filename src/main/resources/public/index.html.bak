@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Welcome to aclickall</title>
+    <style type="text/css">
+        .body {
+            width: 800px;
+            margin: 0 auto 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="body">
+        
+        Welcome to aclickall.com
+
+        
+    </div>
+
+    
+   
+</body>
+</html>

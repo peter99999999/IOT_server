@@ -1,4 +1,4 @@
-package IotServer;
+package Iot.IotServer;
 
 import java.util.List;
 

@@ -1,4 +1,4 @@
-package Mesg;
+package Iot.Mesg;
 /*
  {"msgCase":"deviceInit","msg":"{\"id\":\"1\"}"}
  {"msgCase":"mobileInit","msg":"{"\id\":\"1\"}"}
@@ -10,7 +10,7 @@ package Mesg;
 import com.google.gson.Gson;
 import com.google.gson.JsonSyntaxException;
 
-import IotServer.DevicesManager;
+import Iot.IotServer.DevicesManager;
 import io.netty.channel.ChannelId;
 
 public class RecMsgDecode {

@@ -1,4 +1,4 @@
-package Mesg;
+package Iot.Mesg;
 
 public class MsgObj {
 

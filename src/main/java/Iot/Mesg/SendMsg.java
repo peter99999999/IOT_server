@@ -1,10 +1,10 @@
-package Mesg;
+package Iot.Mesg;
 
 import com.google.gson.Gson;
 
-import IotServer.DevicesManager;
-import IotServer.NettyEchoServerHandler;
-import Mesg.MsgObj.DeviceInfo;
+import Iot.IotServer.DevicesManager;
+import Iot.IotServer.NettyEchoServerHandler;
+import Iot.Mesg.MsgObj.DeviceInfo;
 import io.netty.channel.Channel;
 import io.netty.channel.ChannelId;
 import io.netty.channel.group.ChannelGroup;

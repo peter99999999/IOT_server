@@ -1,10 +1,10 @@
-package IotServer;
+package Iot.IotServer;
 
 import java.net.InetSocketAddress;
 
 import com.google.gson.Gson;
 
-import Mesg.RecMsgDecode;
+import Iot.Mesg.RecMsgDecode;
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandler.Sharable;
 import io.netty.channel.ChannelHandlerContext;
@@ -23,7 +23,7 @@ public class NettyEchoServerHandler extends ChannelInboundHandlerAdapter {
     	ByteBuf in = (ByteBuf) msg;
     	String strobjS[]; 
     										
-    	String info=in.toString(io.netty.util.CharsetUtil.US_ASCII);								//;	//获取客户端发过来的信�?
+    	String info=in.toString(io.netty.util.CharsetUtil.US_ASCII);								//;	//获取客户端发过来的信�?
     								
         System.out.println("NettyEchoServerHandler,Server receive:"+info);	
 

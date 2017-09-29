@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Welcome to aclickall</title>
+    <style type="text/css">
+        .body {
+            width: 800px;
+            margin: 0 auto 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="body">       
+        <div id="editarea">
+            <p>先把Markdown内容粘贴到此处，再用Markdown here作Render</p>
+        </div>
+        
+    </div>
+        
+     <!-- 引用js -->
+    <script type="text/javascript" src="js/wangeditor/wangEditor.min.js"></script>
+    <script type="text/javascript">
+        var E = window.wangEditor
+        var editor2 = new E('#editarea')
+        editor2.create()
+    </script>
+   
+</body>
+</html>

@@ -1,0 +1,51 @@
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <!-- <base href="http://localhost:8081/"></base> -->
+    <!-- <base href="@{/}"></base> -->
+    
+    <title>tinymceShowUpdateFile.html</title>
+	
+    <meta http-equiv="keywords" content="keyword1,keyword2,keyword3"></meta>
+    <meta http-equiv="description" content="this is my page"></meta>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"></meta>
+    <script type="text/javascript" src="tinyLibs/tinymce.js" ></script>
+		<script type="text/javascript" src="tinyLibs/jquery.js" ></script>
+    <!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
+    <style>
+		body,html
+		{
+			height: 100%;
+			width: 100%;
+		}
+		 
+		   #mytextarea
+		   {
+		   	height: 100%;
+		   	width: 100%;
+		   	position: relative;
+		   	bottom: 0px;
+		   }
+		</style>
+  </head>
+  
+  <body>
+      <!--<textarea id="mytextarea"  rows="30" ><%=session.getAttribute("editorText")%></textarea>   --> 
+      <div id="mytextarea" th:if="${message}">					
+				<div th:each="data : ${message}">
+				    <div th:utext="${data.getBlogDetail()}"></div>
+				</div>
+	  </div>
+		 
+		 <!-- <script>
+		      
+		      
+			  tinymce.init({
+			     selector: 'textarea' , // change this value according to your HTML
+				   toolbar: "image",
+           plugins: "image ",
+			  });	 
+			</script>-->
+  </body>
+</html>
